@@ -1,0 +1,21 @@
+CREATE DATABASE WishList;
+GO
+
+USE WishList;
+GO
+
+CREATE TABLE Desejos
+(
+	idDesejo	INT PRIMARY KEY IDENTITY, 
+	descricao	VARCHAR(300) NOT NULL
+);
+GO
+
+CREATE TABLE Usuarios
+(
+	idUsuario	INT PRIMARY KEY IDENTITY,
+	idDesejo	INT FOREIGN KEY REFERENCES Desejos(idDesejo),
+	email		VARCHAR(200) NOT NULL UNIQUE,
+	senha		VARCHAR(200) NOT NULL
+);
+GO
